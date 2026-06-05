@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旭スタジオ — ワークショップ、リサーチ、ものづくりのためのオープンスタジオ</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.jpg">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.jpg">
+    <meta name="description" content="旭スタジオ — 秋田市旭南のオープンスタジオ。ワークショップ、リサーチ、ものづくりのための場所。">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#f7f7f7',
+                        text: '#1a1a1a',
+                        muted: '#6b6b6b',
+                        border: '#d4d4d4',
+                        accent: '#3b82f6',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', '"Hiragino Kaku Gothic ProN"', 'sans-serif'],
+                        serif: ['"Noto Serif JP"', '"Hiragino Mincho ProN"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        @media (max-width: 768px) {
+            .vertical-text-mobile-off {
+                writing-mode: horizontal-tb;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-text leading-relaxed">
+
+    <!-- Hero -->
+    <section class="min-h-[90vh] md:min-h-[85vh] flex flex-col justify-end px-6 md:px-16 pb-12 md:pb-24 overflow-hidden">
+        <!-- Desktop: side by side / Mobile: stacked -->
+        <div class="flex flex-col-reverse md:flex-row md:items-end gap-10 md:gap-16">
+            <!-- Text -->
+            <div class="flex-1 min-w-0">
+                <h1 class="text-[1.15rem] md:text-[2rem] lg:text-[2.5rem] leading-[1.4] font-light tracking-tight mb-8 md:mb-10">
+                    （これから発生する場所を探している）<br>
+                    旭スタジオ
+                </h1>
+                <p class="text-base md:text-lg font-light leading-loose">
+                    ワークショップ、<br>
+                    リサーチ、<br>
+                    ものづくりのための<br>
+                    オープンスタジオ
+                </p>
+            </div>
+            <!-- Photo -->
+            <div class="w-full md:w-[45%] lg:w-[40%] min-w-0 shrink-0">
+                <img src="images/studio-1f.png" alt="旭スタジオ 1階スタジオ全景" class="w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="border-t border-border mx-6 md:mx-16"></div>
+
+    <!-- About -->
+    <section class="px-6 md:px-16 py-20 md:py-32">
+        <div class="max-w-3xl">
+            <h2 class="text-xs tracking-[0.3em] text-muted uppercase mb-10">About</h2>
+            <p class="text-base md:text-lg leading-loose font-light">
+                秋田市旭南にあるオープンスタジオです。秋田駅と秋田公立美術大学の中間に位置し、新屋方面行き川元小川町バス停の目の前。アートスペース・オルタナスの隣にあります。
+            </p>
+            <p class="text-base md:text-lg leading-loose font-light mt-6">
+                1階は約30畳の共用スタジオと8畳の作業スペース。2階には8畳の個室スタジオが2部屋あります。
+            </p>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="border-t border-border mx-6 md:mx-16"></div>
+
+    <!-- Weekend Program -->
+    <section class="py-20 md:py-32">
+        <div class="px-6 md:px-16 max-w-3xl mb-16">
+            <h2 class="text-xs tracking-[0.3em] text-muted uppercase mb-10">Weekend Research Program</h2>
+            <p class="text-base md:text-lg leading-loose font-light">
+                週末に当スタジオ主催のリサーチプログラムを開催しています。<br>
+                観察する、分解する、再構成する、冒険する。
+            </p>
+        </div>
+
+        <!-- これまでのプログラム -->
+        <div class="px-6 md:px-16 mb-20">
+            <p class="text-xs tracking-[0.2em] text-muted mb-6">これまでのプログラム</p>
+            <div class="flex gap-4 md:gap-6 overflow-x-auto pb-4 -mx-6 px-6 md:-mx-16 md:px-16 snap-x snap-mandatory" style="scrollbar-width: thin;">
+                <!-- 1/10建築模型 — 実施済み -->
+                <a href="#" class="group snap-start shrink-0 w-[80vw] md:w-[400px] block">
+                    <div class="aspect-[4/3] bg-[#e8e8e8] mb-4 overflow-hidden">
+                        <img src="images/studio-1f.png" alt="1/10建築模型" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <p class="text-base md:text-lg font-light leading-relaxed">スタジオにあるもので建築模型を探索する「1/10建築模型」</p>
+                    <p class="text-xs text-muted mt-2">身の回りの素材で建築的な構造を発見し、スケールと空間を再考する</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- これからのプログラム -->
+        <div class="px-6 md:px-16 mb-16">
+            <p class="text-xs tracking-[0.2em] text-muted mb-8">これからのプログラム</p>
+            <ul class="space-y-5 max-w-3xl">
+                <li class="text-base md:text-lg font-light leading-relaxed">近所のスーパーの300円弁当を分解して再構成してコース料理にする「300円コース」</li>
+                <li class="text-base md:text-lg font-light leading-relaxed">いらない服や布を持ち寄って一度しか着ない服を作る</li>
+                <li class="text-base md:text-lg font-light leading-relaxed">旭川俳句会</li>
+                <li class="text-base md:text-lg font-light leading-relaxed">あまりに時間をかける過剰デッサン教室</li>
+                <li class="text-base md:text-lg font-light leading-relaxed">ブラウブリッツ秋田の試合を8倍速4倍速2倍速で見て批評するJリーグ応援回</li>
+            </ul>
+        </div>
+
+        <!-- Instagram -->
+        <div class="px-6 md:px-16">
+            <p class="text-sm text-muted font-light mb-6">
+                詳細・お申し込みはInstagramをご覧ください。
+            </p>
+            <a href="#" class="inline-block text-sm tracking-wide border-b border-text pb-1 hover:opacity-60 transition-opacity">
+                → Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="border-t border-border mx-6 md:mx-16"></div>
+
+    <!-- Studio Share -->
+    <section class="px-6 md:px-16 py-20 md:py-32">
+        <div class="max-w-3xl">
+            <h2 class="text-xs tracking-[0.3em] text-muted uppercase mb-10">Studio Share</h2>
+            <p class="text-base md:text-lg leading-loose font-light mb-12">
+                平日はシェアスタジオとしてご利用いただけます。利用状況に応じて、話し合いながら一部利用が原則です。
+            </p>
+
+            <!-- 利用時間 -->
+            <div class="mb-10">
+                <h3 class="text-xs tracking-[0.2em] text-muted mb-4">利用時間</h3>
+                <p class="text-base font-light">9:00 – 21:00</p>
+            </div>
+
+            <!-- 料金 -->
+            <div class="mb-10">
+                <h3 class="text-xs tracking-[0.2em] text-muted mb-6">料金（税別）</h3>
+
+                <!-- 1階 -->
+                <div class="mb-12 pl-0 md:pl-4">
+                    <p class="text-sm font-normal mb-4">1階 シェアスタジオ</p>
+                    <div class="grid grid-cols-[1fr_auto] gap-x-8 gap-y-3 max-w-sm text-base font-light">
+                        <span>1日</span><span class="text-right">¥1,000</span>
+                        <span>半日（9:00–15:00 / 15:00–21:00）</span><span class="text-right">¥500</span>
+                        <span>1週間</span><span class="text-right">¥5,000</span>
+                        <span>1ヶ月</span><span class="text-right">¥15,000</span>
+                        <span>長期（3ヶ月以上）</span><span class="text-right">¥5,000 / 月</span>
+                    </div>
+                    <p class="text-xs text-muted mt-3">長期利用は光熱費別途</p>
+                </div>
+
+                <!-- 2階 -->
+                <div class="mb-10 pl-0 md:pl-4 mt-14">
+                    <p class="text-sm font-normal mb-4">2階 個室スタジオ（各部屋）</p>
+                    <div class="grid grid-cols-[1fr_auto] gap-x-8 gap-y-3 max-w-sm text-base font-light">
+                        <span>1ヶ月</span><span class="text-right">¥10,000</span>
+                    </div>
+                    <p class="text-xs text-muted mt-3">光熱費は実費別途。台所・トイレ・階段室は共用</p>
+                </div>
+
+                <p class="text-xs text-muted">※ 学生料金あり。お問い合わせください。</p>
+            </div>
+
+            <!-- 設備 -->
+            <div class="mb-10">
+                <h3 class="text-xs tracking-[0.2em] text-muted mb-4">設備</h3>
+                <p class="text-base font-light">
+                    作業台、インパクトドライバー、各種工具、キッチン、冷蔵庫、洗濯機
+                </p>
+            </div>
+
+            <!-- 駐車場 -->
+            <div>
+                <h3 class="text-xs tracking-[0.2em] text-muted mb-4">駐車場</h3>
+                <p class="text-base font-light">
+                    空きがある場合、月額 ¥5,000 でご利用いただけます。駐車場のみの利用はできません。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="border-t border-border mx-6 md:mx-16"></div>
+
+    <!-- Photo row -->
+    <section class="px-6 md:px-16 py-20 md:py-32">
+        <div class="grid grid-cols-2 gap-4 md:gap-6">
+            <img src="images/studio-detail-1.jpg" alt="旭スタジオ" class="w-full h-auto">
+            <img src="images/studio-detail-2.jpg" alt="旭スタジオ" class="w-full h-auto">
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="border-t border-border mx-6 md:mx-16"></div>
+
+    <!-- Access -->
+    <section class="px-6 md:px-16 py-20 md:py-32">
+        <div class="max-w-3xl">
+            <h2 class="text-xs tracking-[0.3em] text-muted uppercase mb-10">Access</h2>
+
+            <div class="space-y-2 text-base font-light mb-10">
+                <p>〒010-0925</p>
+                <p>秋田県秋田市旭南3丁目10-14</p>
+            </div>
+
+            <p class="text-sm text-muted font-light leading-relaxed mb-10">
+                新屋方面行き 川元小川町バス停の目の前。<br>
+                アートスペース・オルタナスの隣。<br>
+                奥には旭南ハイツ（ゲストルームあり）。
+            </p>
+
+            <!-- Map placeholder -->
+            <div class="w-full aspect-[16/9] max-w-xl bg-[#e8e8e8] flex items-center justify-center text-muted text-sm">
+                <span>Google Maps 埋め込み</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="border-t border-border mx-6 md:mx-16"></div>
+
+    <!-- Contact -->
+    <section class="px-6 md:px-16 py-20 md:py-32">
+        <div class="max-w-3xl">
+            <h2 class="text-xs tracking-[0.3em] text-muted uppercase mb-10">Contact</h2>
+            <div class="space-y-4 text-base font-light">
+                <p>
+                    <span class="text-xs tracking-[0.2em] text-muted block mb-2">Email</span>
+                    <a href="mailto:tsuda@3from2.com" class="border-b border-text pb-0.5 hover:opacity-60 transition-opacity">tsuda@3from2.com</a>
+                </p>
+                <p class="mt-8">
+                    <span class="text-xs tracking-[0.2em] text-muted block mb-2">Instagram</span>
+                    <a href="#" class="border-b border-text pb-0.5 hover:opacity-60 transition-opacity">@asahi_studio</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 md:px-16 py-10 border-t border-border">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-muted">
+            <p>旭スタジオ — 秋田市旭南3丁目10-14</p>
+            <a href="index.html" class="hover:opacity-60 transition-opacity">Three from Two</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

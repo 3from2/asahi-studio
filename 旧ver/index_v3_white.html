@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旭スタジオ — ワークショップ、リサーチ、ものづくりのためのオープンスタジオ</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.jpg">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.jpg">
+    <meta name="description" content="旭スタジオ — 秋田市旭南のオープンスタジオ。ワークショップ、リサーチ、ものづくりのための場所。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f8f7;
+            --text: #1a1714;
+            --muted: #8a8590;
+            --border: #d4d4d0;
+            --accent: #1a1714;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            position: relative;
+        }
+
+        .hero-frame {
+            border: 1px solid var(--text);
+            padding: 4rem 3rem;
+            max-width: 640px;
+            width: 100%;
+            position: relative;
+        }
+
+        .hero-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title-lead {
+            display: block;
+            font-size: clamp(1.05rem, 2.8vw, 1.5rem);
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            line-height: 1.8;
+            margin-bottom: 0.3em;
+        }
+
+        .hero-title-main {
+            display: block;
+            font-size: clamp(1.5rem, 4.5vw, 2.75rem);
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            line-height: 1.1;
+        }
+
+        .hero-vertical-block {
+            height: 280px;
+            margin: 5rem auto 2.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-vertical-text {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            line-height: 2.4;
+        }
+
+        .hero-sub {
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .hero-corner {
+            position: absolute;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+        }
+
+        .hero-corner-tr {
+            top: 1.2rem;
+            right: 1.5rem;
+        }
+
+        .hero-corner-bl {
+            bottom: 1.2rem;
+            left: 1.5rem;
+        }
+
+        /* ── Section ── */
+        .section {
+            padding: 5rem 3rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .section-border {
+            border-top: 1px solid var(--border);
+            margin: 0 3rem;
+        }
+
+        .section-heading {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-body {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 2.2;
+            letter-spacing: 0.04em;
+        }
+
+        .section-body + .section-body {
+            margin-top: 1.5rem;
+        }
+
+        /* ── Program ── */
+        .program-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .program-list li {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 2;
+            letter-spacing: 0.04em;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .program-list li:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .program-list li .program-em {
+            font-weight: 500;
+        }
+
+        .program-label {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        /* ── Vertical Program Section ── */
+        .program-vertical-wrapper {
+            padding: 5rem 3rem;
+            overflow-x: auto;
+        }
+
+        .program-vertical-intro {
+            max-width: 720px;
+            margin: 0 auto 3rem;
+        }
+
+        .program-vertical-scroll {
+            display: flex;
+            justify-content: center;
+        }
+
+        .program-vertical-container {
+            height: 620px;
+            display: flex;
+            gap: 0;
+        }
+
+        .program-vertical-item {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            height: 100%;
+            padding: 1.5rem 0.6rem;
+            border-right: 1px solid var(--border);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.8;
+            letter-spacing: 0.12em;
+            cursor: default;
+            transition: background-color 0.3s ease;
+        }
+
+        .program-vertical-item:first-child {
+            border-left: 1px solid var(--border);
+        }
+
+        .program-vertical-item:hover {
+            background-color: rgba(26, 23, 20, 0.03);
+        }
+
+        /* ── Price ── */
+        .price-group {
+            margin-bottom: 3rem;
+        }
+
+        .price-group-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.2rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+        }
+
+        .price-row + .price-row {
+            border-top: 1px dotted var(--border);
+        }
+
+        .price-val {
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+            margin-left: 2rem;
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-weight: 300;
+            margin-top: 0.6rem;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Photo ── */
+        .photo-section {
+            padding: 4rem 3rem;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ── Links ── */
+        a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .link-underline {
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 2px;
+            transition: opacity 0.3s;
+        }
+
+        .link-underline:hover {
+            opacity: 0.5;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            padding: 2.5rem 3rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+        }
+
+        /* ── Gallery ── */
+        .gallery-section {
+            padding: 0 3rem 4rem;
+        }
+
+        .gallery-masonry {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gallery-masonry img {
+            width: 100%;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-masonry img:hover {
+            opacity: 0.85;
+        }
+
+        /* ── Gallery arrow ── */
+        .gallery-arrow {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .gallery-section {
+                padding: 0;
+                min-height: 100svh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-bottom: 5rem;
+            }
+
+            .gallery-masonry {
+                max-width: 100%;
+                padding: 0 1.5rem;
+            }
+
+            .gallery-masonry img {
+                max-height: 75svh;
+                width: 100%;
+                object-fit: contain;
+            }
+
+            .gallery-arrow {
+                display: flex;
+                justify-content: center;
+                margin-top: 2.5rem;
+                color: var(--muted);
+                animation: arrowBob 1.8s ease-in-out infinite;
+            }
+
+            .gallery-arrow svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @keyframes arrowBob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+
+        /* ── Colophon-style detail ── */
+        .colophon {
+            text-align: center;
+            padding: 4rem 3rem 2rem;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            line-height: 2.2;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-frame {
+                padding: 3rem 2rem;
+            }
+
+            .hero-title-lead {
+                font-size: 0.9rem;
+            }
+
+            .hero-title-main {
+                font-size: 2.5rem;
+            }
+
+            .hero-vertical-block {
+                height: 220px;
+                margin-top: 3.75rem;
+            }
+
+            .hero-vertical-text {
+                font-size: 0.95rem;
+            }
+
+            .section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .section-border {
+                margin: 0 1.5rem;
+            }
+
+            .section-heading {
+                font-size: 1.3rem;
+            }
+
+            .program-vertical-wrapper {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .program-vertical-container {
+                height: 520px;
+            }
+
+            .program-vertical-item {
+                font-size: 0.85rem;
+                padding: 1.2rem 0.5rem;
+            }
+
+            .photo-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .footer {
+                padding: 2rem 1.5rem;
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: flex-start;
+            }
+
+            iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-frame">
+            <span class="hero-corner hero-corner-tr vertical" style="height: 60px; font-size: 0.65rem;">　</span>
+
+            <h1 class="hero-title">
+                <span class="hero-title-lead">（これから発生する場所をさがしている）</span>
+                <span class="hero-title-main">旭スタジオ</span>
+            </h1>
+
+            <div class="hero-vertical-block">
+                <div class="hero-vertical-text vertical">ワークショップ、<br>リサーチ、<br>ものづくりのための<br>オープンスタジオ</div>
+            </div>
+
+            <span class="hero-corner hero-corner-bl">秋田市旭南三丁目十番十四号</span>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-masonry">
+            <img src="images/ギャラリー/studio-1f_web.jpg" alt="旭スタジオ 1階" loading="lazy">
+        </div>
+        <div class="gallery-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About -->
+    <div class="section-border"></div>
+    <section class="section">
+        <h2 class="section-heading">場について</h2>
+        <p class="section-body">
+            秋田市旭南にあるオープンスタジオです。秋田駅と秋田公立美術大学の中間に位置し、新屋方面行き川元小川町バス停の目の前。アートスペース・オルタナスの隣にあります。
+        </p>
+        <p class="section-body">
+            一階は約三十畳の共用スタジオと八畳の作業スペース。二階には八畳の個室スタジオが二部屋あります。
+        </p>
+    </section>
+
+    <!-- Weekend Program -->
+    <div class="section-border"></div>
+    <section class="section">
+        <h2 class="section-heading">週末リサーチ教室</h2>
+        <p class="section-body" style="margin-bottom: 3rem;">
+            週末に当スタジオ主催のリサーチプログラムを開催しています。<br>
+            観察する、分解する、再構成する、冒険する。
+        </p>
+
+        <ul class="program-list" style="margin-left: 1.5rem;">
+            <li>スタジオにあるもので建築模型を探索する</li>
+            <li>近所のスーパーの三百円弁当を分解して再構成して<br>コース料理にする<span class="program-em">「三百円コース」</span></li>
+            <li>いらない服や布を持ち寄って<br>一度しか着ない服を作る</li>
+            <li>旭川俳句会</li>
+            <li>あまりに時間をかける過剰デッサン教室</li>
+            <li>ブラウブリッツ秋田の試合を八倍速四倍速二倍速で見て<br>批評するJリーグ応援回</li>
+        </ul>
+
+        <div style="margin-top: 2.5rem;">
+            <p class="note">詳細・お申し込みはInstagramをご覧ください。</p>
+            <p style="margin-top: 1rem;">
+                <a href="#" class="link-underline" style="font-size: 0.9rem; font-weight: 300;">→ Instagram</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Studio Share -->
+    <div class="section-border"></div>
+    <section class="section">
+        <h2 class="section-heading">シェアスタジオ</h2>
+        <p class="section-body" style="margin-bottom: 2.5rem;">
+            平日はシェアスタジオとしてご利用いただけます。利用状況に応じて、話し合いながら一部利用が原則です。
+        </p>
+
+        <p class="program-label">利用時間</p>
+        <p class="section-body" style="margin-bottom: 2.5rem;">九時〜二十一時</p>
+
+        <p class="program-label">料金（税別）</p>
+
+        <div class="price-group" style="margin-left: 1.5rem;">
+            <p class="price-group-title">一階 共用スタジオ</p>
+            <div class="price-row"><span>一日</span><span class="price-val">¥1,000</span></div>
+            <div class="price-row"><span>半日</span><span class="price-val">¥500</span></div>
+            <div class="price-row"><span>一週間</span><span class="price-val">¥5,000</span></div>
+            <div class="price-row"><span>一ヶ月</span><span class="price-val">¥15,000</span></div>
+            <div class="price-row"><span>長期（三ヶ月以上）</span><span class="price-val">¥5,000 / 月</span></div>
+            <p class="note">長期利用は光熱費別途</p>
+        </div>
+
+        <div class="price-group" style="margin-left: 1.5rem;">
+            <p class="price-group-title">二階 個室スタジオ（各部屋）</p>
+            <div class="price-row"><span>一ヶ月</span><span class="price-val">¥10,000</span></div>
+            <p class="note">光熱費は実費別途。台所・トイレ・階段室は共用</p>
+        </div>
+
+        <p class="note">※ 学生料金あり。お問い合わせください。</p>
+        <p class="note" style="margin-top: 0.5rem;">※ 粉塵が出る作業や強い匂いの出る作業は、キッチンスペースを共用する都合上、事前にご相談ください。</p>
+
+        <div style="margin-top: 3rem;">
+            <p class="program-label">設備</p>
+            <p class="section-body">作業台、インパクトドライバー、各種工具、キッチン、冷蔵庫、洗濯機</p>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <p class="program-label">駐車場</p>
+            <p class="section-body">空きがある場合、月額五千円でご利用いただけます。駐車場のみの利用はできません。</p>
+        </div>
+    </section>
+
+    <!-- Access -->
+    <div class="section-border"></div>
+    <section class="section">
+        <h2 class="section-heading">所在</h2>
+
+        <p class="section-body" style="margin-bottom: 2rem;">
+            〒010-0925<br>
+            秋田県秋田市旭南三丁目十番十四号
+        </p>
+
+        <p class="note" style="line-height: 2.2;">
+            新屋方面行き 川元小川町バス停の目の前。<br>
+            アートスペース・オルタナスの隣。<br>
+            奥には旭南ハイツ（ゲストルームあり）。
+        </p>
+
+        <div style="margin-top: 2.5rem; width: 100%;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3173.4456315839025!2d140.10431337597603!3d39.70528657156288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8fc302ab898c01%3A0xcae06836bfc75e83!2z44CSMDEwLTA5MjUg56eL55Sw55yM56eL55Sw5biC5pet5Y2X77yT5LiB55uu77yR77yQ4oiS77yR77yU!5e0!3m2!1sja!2sjp!4v1780450175242!5m2!1sja!2sjp" width="100%" height="450" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <div class="section-border"></div>
+    <section class="section">
+        <h2 class="section-heading">連絡先</h2>
+        <div style="line-height: 2.5; font-weight: 300;">
+            <p>
+                <span class="program-label" style="display: block; margin-bottom: 0.3rem;">メール</span>
+                <a href="mailto:tsuda@3from2.com" class="link-underline">tsuda@3from2.com</a>
+            </p>
+            <p style="margin-top: 1.5rem;">
+                <span class="program-label" style="display: block; margin-bottom: 0.3rem;">Instagram</span>
+                <a href="#" class="link-underline">@asahi_studio</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Colophon -->
+    <div class="colophon">
+        旭スタジオ<br>
+        秋田市旭南三丁目十番十四号
+    </div>
+
+
+
+</body>
+
+</html>
