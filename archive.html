@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アーカイブ（これから発生する場所）— 旭スタジオ</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <meta name="description" content="旭スタジオのアーカイブ。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f8f7;
+            --text: #1a1714;
+            --muted: #8a8590;
+            --border: #d4d4d0;
+            --accent: #1a1714;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Nav ── */
+        .nav-back {
+            padding: 1.5rem 3rem;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+        }
+
+        .nav-back a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-back a:hover {
+            color: var(--text);
+        }
+
+        /* ── Page Header ── */
+        .page-header {
+            padding: 4rem 3rem 3rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .page-header-title {
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            line-height: 1.4;
+        }
+
+        .page-header-sub {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            display: block;
+            margin-top: 0.2em;
+        }
+
+        /* ── Section (Accordion) ── */
+        .section {
+            padding: 2.5rem 3rem;
+            max-width: 720px;
+            margin: 0 auto;
+            font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            transition: padding 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .section.open {
+            padding: 4.5rem 3rem 5rem;
+        }
+
+        .section-border {
+            border-top: 1px solid var(--border);
+            margin: 0 3rem;
+        }
+
+        /* ── Entry heading ── */
+        .section-heading {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            margin-bottom: 0;
+            font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            cursor: pointer;
+            user-select: none;
+            transition: margin-bottom 0.5s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+            gap: 1rem;
+        }
+
+        .section-heading:hover {
+            color: var(--muted);
+        }
+
+        .section.open .section-heading {
+            margin-bottom: 2.5rem;
+        }
+
+        .entry-date {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-bottom: 0.4em;
+            font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+        }
+
+        /* ── Accordion Icon ── */
+        .accordion-icon {
+            position: relative;
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 0.6em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: "";
+            position: absolute;
+            background-color: currentColor;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .accordion-icon::before {
+            width: 100%;
+            height: 1px;
+        }
+
+        .accordion-icon::after {
+            width: 1px;
+            height: 100%;
+        }
+
+        .section.open .accordion-icon::after {
+            transform: rotate(90deg);
+            opacity: 0;
+        }
+
+        .section.open .accordion-icon::before {
+            transform: rotate(180deg);
+        }
+
+        /* ── Accordion Content ── */
+        .accordion-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            overflow: hidden;
+        }
+
+        .section.open .accordion-content {
+            grid-template-rows: 1fr;
+        }
+
+        .accordion-inner {
+            min-height: 0;
+        }
+
+        /* ── Article body ── */
+        .section-body {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 2.2;
+            letter-spacing: 0.04em;
+            font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+        }
+
+        .section-body + .section-body {
+            margin-top: 1.5rem;
+        }
+
+        /* ── Article photos ── */
+        .entry-photos {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .entry-photos img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ── Links ── */
+        a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        /* ── Colophon ── */
+        .colophon {
+            text-align: center;
+            padding: 4rem 3rem 2rem;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            line-height: 2.2;
+            font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 640px) {
+            .nav-back {
+                padding: 1.2rem 1.5rem;
+            }
+
+            .page-header {
+                padding: 2.5rem 1.5rem 2rem;
+            }
+
+            .section {
+                padding: 1.8rem 1.5rem;
+            }
+
+            .section.open {
+                padding: 3rem 1.5rem 3.5rem;
+            }
+
+            .section-border {
+                margin: 0 1.5rem;
+            }
+
+            .section-heading {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav-back">
+        <a href="/">← 旭スタジオ</a>
+    </nav>
+
+    <header class="page-header">
+        <h1 class="page-header-title">
+            アーカイブ
+            <span class="page-header-sub">（これから発生する場所）</span>
+        </h1>
+    </header>
+
+    <div class="section-border"></div>
+    <section class="section">
+        <h2 class="section-heading">
+            <span>
+                <span class="entry-date">2026-06-06</span>
+                管がたくさんある場所
+            </span>
+            <span class="accordion-icon"></span>
+        </h2>
+        <div class="accordion-content">
+            <div class="accordion-inner">
+                <div style="padding-top: 0.5rem;">
+                    <p class="section-body">エアコンは見るからに奇妙な家電だ。室内機と室外機が３本の管で繋がっている。冷媒管２本と銅線１本。管の中の冷媒？は室内と室外を行き来するわけだけど、その様が空港の国際線ロビーの感じに似ている気がする。</p>
+                    <p class="section-body">３本の管はそれぞれが絶縁テープや保護クッションに巻かれたりしていて、さらにそれをテープで束ねて、保護用のカバーレールに収納して壁に這わせる。<br>その他、真空機のカラフルなコード。</p>
+                    <p class="section-body">室外機を置く場所に紫陽花が生えていた。前私が住んでいた家の室外機の前にも紫陽花がたくさん植えられてあったので、紫陽花の茎がスカスカなこと、途中でポキンと折れて服などに突き刺さることを知っている。今回も、作業用のスペースを確保するのに紫陽花は厄介だった。エアコンの作業を待ちながら、紫陽花を一気に剪定してみる。背を低く、小さく。</p>
+                    <p class="section-body">塀の足元には、古い雨樋のような長いパイプや棚の残骸のようなものが打ち捨てられている。切断した紫陽花のスカスカの茎はそこに重ねておいておく。</p>
+                    <div class="entry-photos">
+                        <img src="images/archive/2026-06-06/01.jpg" alt="管がたくさんある場所 1" loading="lazy">
+                        <img src="images/archive/2026-06-06/02.jpg" alt="管がたくさんある場所 2" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="section-border"></div>
+
+    <div class="colophon">
+        （これから発生する場所をさがしている）旭スタジオ<br>
+        秋田市旭南三丁目十番十四号
+    </div>
+
+    <script>
+        document.querySelectorAll('.section-heading').forEach(heading => {
+            heading.addEventListener('click', () => {
+                const section = heading.closest('.section');
+                section.classList.toggle('open');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

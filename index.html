@@ -480,6 +480,85 @@
             font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
         }
 
+        /* ── Archive entries ── */
+        .archive-list {
+            margin-top: 0.5rem;
+        }
+
+        .archive-entry {
+            border-top: 1px solid var(--border);
+        }
+
+        .archive-entry:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .archive-entry-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            padding: 1.2rem 0;
+            gap: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .archive-entry-heading:hover {
+            color: var(--muted);
+        }
+
+        .archive-entry-meta {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .archive-entry-date {
+            font-size: 0.8rem;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            font-variant-numeric: tabular-nums;
+            font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            white-space: nowrap;
+        }
+
+        .archive-entry-title {
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+        }
+
+        .archive-entry.open .accordion-content {
+            grid-template-rows: 1fr;
+        }
+
+        .archive-photos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .archive-photos img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ── Archive nav link ── */
+        .section-nav-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s;
+        }
+
+        .section-nav-link:hover .section-heading {
+            color: var(--muted);
+        }
+
         /* ── Mobile ── */
         @media (max-width: 640px) {
             .hero {
@@ -551,6 +630,10 @@
 
             iframe {
                 height: 300px;
+            }
+
+            .archive-sub {
+                display: block;
             }
         }
     </style>
@@ -733,6 +816,17 @@
         </div>
     </section>
 
+    <!-- Archive -->
+    <div class="section-border"></div>
+    <a href="archive.html" class="section-nav-link">
+        <div class="section" style="cursor: pointer;">
+            <div class="section-heading" style="pointer-events: none;">
+                <span>アーカイブ<span class="archive-sub" style="font-size: 0.8em;">（これから発生する場所）</span></span>
+                <span style="font-size: 0.85rem; font-weight: 300; color: var(--muted); letter-spacing: 0.05em; font-family: sans-serif;">→</span>
+            </div>
+        </div>
+    </a>
+
     <!-- Colophon -->
     <div class="colophon">
         （これから発生する場所をさがしている）旭スタジオ<br>
@@ -743,9 +837,14 @@
         document.querySelectorAll('.section-heading').forEach(heading => {
             heading.addEventListener('click', () => {
                 const section = heading.closest('.section');
-                
-                // トグル（開閉）
                 section.classList.toggle('open');
+            });
+        });
+
+        document.querySelectorAll('.archive-entry-heading').forEach(heading => {
+            heading.addEventListener('click', () => {
+                const entry = heading.closest('.archive-entry');
+                entry.classList.toggle('open');
             });
         });
     </script>
