@@ -13,6 +13,7 @@
     <meta property="og:image" content="https://asahi-studio.3from2.com/images/%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%AA%E3%83%BC/studio-1f_web.jpg">
     <meta property="og:url" content="https://asahi-studio.3from2.com/">
     <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -652,7 +653,7 @@
             </h1>
 
             <div class="hero-vertical-block">
-                <div class="hero-vertical-text vertical">ものづくり、<br>ワークショップ、<br>リサーチのための<br>オープンスタジオ</div>
+                <div class="hero-vertical-text vertical" role="text">ものづくり、<br>ワークショップ、<br>リサーチのための<br>オープンスタジオ</div>
             </div>
 
             <span class="hero-corner hero-corner-bl">秋田市旭南三丁目十番十四号</span>
@@ -673,7 +674,7 @@
 
     <!-- About -->
     <div class="section-border"></div>
-    <section class="section">
+    <section class="section open">
         <h2 class="section-heading">
             <span>場について</span>
             <span class="accordion-icon"></span>
@@ -709,7 +710,8 @@
         <div class="accordion-content">
             <div class="accordion-inner">
                 <p class="section-body" style="margin-bottom: 3rem; padding-top: 1rem;">
-                    週末に当スタジオ主催のリサーチプログラムを開催しています。<br>
+                    毎週土曜日14時〜17時に、当スタジオ主催のリサーチプログラムを開催しています。<br>
+                    誰でも参加可能です。<br>
                     観察する、分解する、再構成する、冒険する。
                 </p>
 
@@ -719,9 +721,10 @@
                 </ul>
 
                 <div style="margin-top: 2.5rem;">
-                    <p class="note">詳細・お申し込みはInstagramをご覧ください。</p>
-                    <p style="margin-top: 1rem;">
-                        <a href="#" class="link-underline" style="font-size: 0.9rem; font-weight: 300;">→ Instagram</a>
+                    <p class="note">詳細・お申し込みはInstagramかフォームをご覧ください。</p>
+                    <p style="margin-top: 1rem; display: flex; gap: 1.5rem;">
+                        <a href="https://www.instagram.com/asahi_studio_exploring/" class="link-underline" style="font-size: 0.9rem; font-weight: 300;">→ Instagram</a>
+                        <a href="https://forms.gle/3hHNUKdj7u2WeToUA" class="link-underline" style="font-size: 0.9rem; font-weight: 300;">→ フォーム</a>
                     </p>
                 </div>
             </div>
@@ -809,7 +812,7 @@
                     </p>
                     <p style="margin-top: 1.5rem;">
                         <span class="program-label" style="display: block; margin-bottom: 0.3rem;">Instagram</span>
-                        <a href="#" class="link-underline">@asahi_studio_exploring</a>
+                        <a href="https://www.instagram.com/asahi_studio_exploring/" class="link-underline">@asahi_studio_exploring</a>
                     </p>
                 </div>
             </div>
@@ -835,16 +838,20 @@
 
     <script>
         document.querySelectorAll('.section-heading').forEach(heading => {
+            const section = heading.closest('.section');
+            heading.setAttribute('aria-expanded', section.classList.contains('open'));
             heading.addEventListener('click', () => {
-                const section = heading.closest('.section');
                 section.classList.toggle('open');
+                heading.setAttribute('aria-expanded', section.classList.contains('open'));
             });
         });
 
         document.querySelectorAll('.archive-entry-heading').forEach(heading => {
+            const entry = heading.closest('.archive-entry');
+            heading.setAttribute('aria-expanded', entry.classList.contains('open'));
             heading.addEventListener('click', () => {
-                const entry = heading.closest('.archive-entry');
                 entry.classList.toggle('open');
+                heading.setAttribute('aria-expanded', entry.classList.contains('open'));
             });
         });
     </script>
