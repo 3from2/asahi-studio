@@ -112,6 +112,17 @@
 
         .section.open .section-heading {
             margin-bottom: 2.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-left: -3rem;
+            padding-left: 3rem;
+            margin-right: -3rem;
+            padding-right: 3rem;
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
         }
 
         .entry-date {
@@ -248,6 +259,13 @@
 
             .section-heading {
                 font-size: 1.1rem;
+            }
+
+            .section.open .section-heading {
+                margin-left: -1.5rem;
+                padding-left: 1.5rem;
+                margin-right: -1.5rem;
+                padding-right: 1.5rem;
             }
         }
     </style>
