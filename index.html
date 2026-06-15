@@ -67,21 +67,52 @@
             margin-bottom: 2rem;
         }
 
+        /* ── 「（これから発生する場所をさがしている）」の文字スタイル ── */
         .hero-title-lead {
             display: block;
+
+            /* ▼ 文字サイズ: clamp(最小, 画面幅に連動, 最大) の3値で指定
+               例: clamp(0.8rem, 2vw, 1.2rem) → 小さくしたいとき
+               例: clamp(1.3rem, 3.5vw, 2rem)  → 大きくしたいとき */
             font-size: clamp(1.05rem, 2.8vw, 1.5rem);
+
+            /* ▼ 太さ: 100(極細)〜900(極太)。明朝体は300か400が映えやすい */
             font-weight: 300;
+
+            /* ▼ 字間: 0=詰め、0.3em=ゆったり。括弧の行は詰めてもいい */
             letter-spacing: 0.12em;
+
+            /* ▼ 行の高さ: 1.0=密着、2.0=ゆったり */
             line-height: 1.8;
+
+            /* ▼ フォント族: "Noto Serif JP"(明朝) or "Noto Sans JP"(ゴシック) 切り替え可能 */
+            /* font-family: "Noto Sans JP", sans-serif; */
+
+            /* ▼ 「旭スタジオ」との上下の隙間 */
             margin-bottom: 0.3em;
         }
 
+        /* ── 「旭スタジオ」の文字スタイル ── */
         .hero-title-main {
             display: block;
+
+            /* ▼ 文字サイズ: 大きくするほど存在感が増す
+               例: clamp(2rem, 6vw, 3.5rem) → かなり大きく
+               例: clamp(1.2rem, 3vw, 2rem)  → サブテキストに近い小ささに */
             font-size: clamp(1.5rem, 4.5vw, 2.75rem);
+
+            /* ▼ 太さ: 300=細め、500=中、700=太め、900=極太
+               極細(200〜300)にすると「発生する場所」と統一感が出る */
             font-weight: 500;
+
+            /* ▼ 字間: 漢字は0.1〜0.2emが読みやすい。広げると看板風になる */
             letter-spacing: 0.15em;
+
+            /* ▼ 行の高さ: 1行なので1.0〜1.2でOK */
             line-height: 1.1;
+
+            /* ▼ フォント族: "Noto Serif JP"(明朝) or "Noto Sans JP"(ゴシック) 切り替え可能 */
+            /* font-family: "Noto Sans JP", sans-serif; */
         }
 
         .hero-vertical-block {
@@ -711,13 +742,13 @@
             <div class="accordion-inner">
                 <p class="section-body" style="margin-bottom: 3rem; padding-top: 1rem;">
                     毎週土曜日14時〜17時に、当スタジオ主催のリサーチプログラムを開催しています。<br>
-                    誰でも参加可能です。<br>
+                    どなたでも参加可能です。<br>
                     観察する、分解する、再構成する、冒険する。
                 </p>
 
                 <ul class="program-list" style="margin-left: 1.5rem;">
-                    <li>スタジオにあるもので建築模型を作り、スタジオの使い方を想像・探索する<span class="program-em">「1/10建築模型ワークショップ」</span></li>
-                    <li><span class="program-em">「旭川俳句川柳会」</span></li>
+                    <li>スタジオにあるもので空間模型を作り、スタジオの使い方を想像・探索する<span class="program-em">「１０分の１模型ワークショップ」</span></li>
+                    <li>二物衝突に若干こだわりをもって取り組む<span class="program-em">「旭川俳句川柳会」</span></li>
                 </ul>
 
                 <div style="margin-top: 2.5rem;">
