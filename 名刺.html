@@ -196,60 +196,62 @@
             </div>
 
             <div class="map-wrap">
-                <span class="map-tag">ACCESS</span>
-                <!-- 概念図（正確な縮尺ではありません） -->
+                <!-- 概念図（実際の位置関係に基づく略図。北＝右。正確な縮尺ではありません）
+                     根拠: 新屋線バス停車順（秋田駅西口→大町→旭南二・三丁目→川元小川町→
+                     川元むつみ町→秋田大橋→美術大学前→新屋）。通りは旭川西岸を南北に走り、
+                     スタジオは通りと旭川の間（正面が通り・奥が旭川）、オルタナスは北隣。 -->
                 <svg class="map" viewBox="0 0 480 154" role="img"
-                    aria-label="旭スタジオへの概念図。旭川沿い、川元小川町バス停の目の前、アートスペース・オルタナスの隣。秋田駅と秋田公立美術大学の中間。">
-                    <!-- 旭川 -->
-                    <path d="M0,14 C120,30 200,8 300,22 C380,33 440,20 480,26 L480,50
-                             C440,44 380,57 300,46 C200,32 120,54 0,38 Z"
-                        fill="var(--river)" />
-                    <text x="70" y="34" font-size="9" fill="#7d8f94" letter-spacing="3"
-                        font-style="italic" transform="rotate(-4 70 34)">旭 川</text>
+                    aria-label="旭スタジオへの概念図。手前の通りに川元小川町バス停、背後に旭川。右（北）が大町・秋田駅方面、左（南）が秋田大橋・新屋・美術大学方面。アートスペース・オルタナスは秋田駅側の隣。">
+                    <!-- 方面（通りの上） -->
+                    <text x="8" y="12" font-size="7.5" fill="#6b665f" letter-spacing="1">← 秋田大橋・新屋・美術大学</text>
+                    <text x="472" y="12" font-size="7.5" fill="#6b665f" letter-spacing="1"
+                        text-anchor="end">大町・秋田駅 →</text>
 
-                    <!-- 道路 -->
-                    <rect x="0" y="112" width="480" height="17" fill="var(--road)" />
-                    <line x1="0" y1="120.5" x2="480" y2="120.5" stroke="#c9c6c1"
+                    <!-- 通り（旭川西岸を南北に走る道・新屋線バス通り） -->
+                    <rect x="0" y="18" width="480" height="18" fill="var(--road)" />
+                    <line x1="0" y1="27" x2="480" y2="27" stroke="#c9c6c1"
                         stroke-width="1" stroke-dasharray="9 7" />
 
-                    <!-- 方面 矢印 -->
-                    <text x="8" y="107" font-size="7.5" fill="#6b665f" letter-spacing="1">← 新屋・美術大学</text>
-                    <text x="472" y="107" font-size="7.5" fill="#6b665f" letter-spacing="1"
-                        text-anchor="end">秋田駅 →</text>
-
-                    <!-- 隣：アートスペース オルタナス -->
-                    <rect x="126" y="70" width="46" height="26" fill="none"
-                        stroke="var(--muted)" stroke-width="1" />
-                    <text x="149" y="83" font-size="6.4" fill="#6b665f" text-anchor="middle">アートスペース</text>
-                    <text x="149" y="91.5" font-size="7" fill="#3f3b35" text-anchor="middle">オルタナス</text>
-
-                    <!-- 奥：旭南ハイツ -->
-                    <rect x="300" y="62" width="70" height="24" fill="none"
-                        stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
-                    <text x="335" y="72" font-size="6.8" fill="#3f3b35" text-anchor="middle">旭南ハイツ</text>
-                    <text x="335" y="81" font-size="5.6" fill="#8a8590" text-anchor="middle">ゲストルーム</text>
-
-                    <!-- 旭スタジオ（現在地） -->
-                    <rect x="204" y="64" width="30" height="30" fill="var(--text)" />
-                    <rect x="209" y="69" width="20" height="20" fill="none"
-                        stroke="var(--bg)" stroke-width="1.4" />
-                    <text x="219" y="58" font-size="9" font-weight="600" fill="var(--text)"
-                        text-anchor="middle">旭スタジオ</text>
-
-                    <!-- 目の前：連絡線＋バス停 -->
-                    <line x1="219" y1="94" x2="219" y2="112" stroke="var(--text)"
-                        stroke-width="1" stroke-dasharray="2.5 2.5" />
-                    <circle cx="219" cy="120.5" r="4.6" fill="var(--bg)"
+                    <!-- バス停（新屋方面行き・スタジオの目の前） -->
+                    <circle cx="200" cy="36" r="4.6" fill="var(--bg)"
                         stroke="var(--text)" stroke-width="1.6" />
-                    <circle cx="219" cy="120.5" r="1.6" fill="var(--text)" />
-                    <text x="219" y="147" font-size="7" fill="#3f3b35"
-                        text-anchor="middle">川元小川町バス停（目の前）</text>
+                    <circle cx="200" cy="36" r="1.6" fill="var(--text)" />
+                    <line x1="200" y1="42" x2="200" y2="60" stroke="var(--text)"
+                        stroke-width="1" stroke-dasharray="2.5 2.5" />
+                    <text x="192" y="53" font-size="7" fill="#3f3b35"
+                        text-anchor="end">川元小川町バス停（目の前）</text>
 
-                    <!-- 方位 -->
-                    <g transform="translate(418,74)">
-                        <line x1="0" y1="12" x2="0" y2="-4" stroke="var(--muted)" stroke-width="1" />
-                        <path d="M0,-7 L2.6,-2 L-2.6,-2 Z" fill="var(--muted)" />
-                        <text x="0" y="21" font-size="6" fill="var(--muted)" text-anchor="middle">N</text>
+                    <!-- 旭スタジオ（現在地・通りと旭川の間） -->
+                    <rect x="185" y="60" width="30" height="30" fill="var(--text)" />
+                    <rect x="190" y="65" width="20" height="20" fill="none"
+                        stroke="var(--bg)" stroke-width="1.4" />
+                    <text x="177" y="79" font-size="9" font-weight="600" fill="var(--text)"
+                        text-anchor="end">旭スタジオ</text>
+
+                    <!-- 北隣（秋田駅側）：アートスペース オルタナス -->
+                    <rect x="228" y="64" width="48" height="26" fill="none"
+                        stroke="var(--muted)" stroke-width="1" />
+                    <text x="252" y="76" font-size="6.4" fill="#6b665f" text-anchor="middle">アートスペース</text>
+                    <text x="252" y="85" font-size="7" fill="#3f3b35" text-anchor="middle">オルタナス</text>
+
+                    <!-- 奥（旭川側）：旭南ハイツ -->
+                    <rect x="290" y="94" width="66" height="22" fill="none"
+                        stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+                    <text x="323" y="104" font-size="6.8" fill="#3f3b35" text-anchor="middle">旭南ハイツ</text>
+                    <text x="323" y="112" font-size="5.6" fill="#8a8590" text-anchor="middle">ゲストルーム</text>
+
+                    <!-- 旭川（スタジオの奥・東側を南北に流れる） -->
+                    <path d="M0,128 C120,140 200,120 300,131 C380,139 440,127 480,132 L480,154
+                             L0,154 Z"
+                        fill="var(--river)" />
+                    <text x="80" y="147" font-size="9" fill="#7d8f94" letter-spacing="3"
+                        font-style="italic" transform="rotate(-3 80 147)">旭 川</text>
+
+                    <!-- 方位（北＝右） -->
+                    <g transform="translate(438,102)">
+                        <line x1="-14" y1="0" x2="4" y2="0" stroke="var(--muted)" stroke-width="1" />
+                        <path d="M7,0 L2,2.6 L2,-2.6 Z" fill="var(--muted)" />
+                        <text x="12" y="2.6" font-size="6.5" fill="var(--muted)">N</text>
                     </g>
                 </svg>
             </div>
