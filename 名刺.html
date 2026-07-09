@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>旭スタジオ 名刺（裏面）</title>
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-    <meta name="description" content="旭スタジオ 名刺の裏面デザイン（印刷用 91×55mm）">
+    <meta name="description" content="旭スタジオ 名刺の裏面デザイン（概念図の地図入り・印刷用 91×55mm）">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -16,6 +16,8 @@
             --text: #1a1714;
             --muted: #8a8590;
             --border: #d4d4d0;
+            --river: #cfdce0;
+            --road: #eae8e4;
         }
 
         * {
@@ -56,15 +58,14 @@
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 6mm 7mm;
+            padding: 5mm 6mm;
         }
 
         /* 外枠（favicon / heroのフレームと同じ意匠） */
         .card::before {
             content: "";
             position: absolute;
-            inset: 3mm;
+            inset: 2.6mm;
             border: 0.4mm solid var(--text);
             pointer-events: none;
         }
@@ -81,76 +82,78 @@
         /* 上段：ロゴ・名称 */
         .brand {
             text-align: center;
-            padding-top: 1mm;
-        }
-
-        .brand .logo-mark {
-            width: 7mm;
-            height: 7mm;
-            border: 0.4mm solid var(--text);
-            margin: 0 auto 2.5mm;
         }
 
         .brand .name {
-            font-size: 5.4mm;
+            font-size: 3.9mm;
             font-weight: 600;
-            letter-spacing: 0.5em;
-            text-indent: 0.5em;
+            letter-spacing: 0.42em;
+            text-indent: 0.42em;
             line-height: 1;
         }
 
-        .brand .name-en {
+        .brand .sub {
             font-family: "Noto Sans JP", sans-serif;
-            font-size: 2mm;
+            font-size: 1.75mm;
             font-weight: 400;
-            letter-spacing: 0.42em;
-            text-indent: 0.42em;
+            letter-spacing: 0.24em;
+            text-indent: 0.24em;
             color: var(--muted);
-            margin-top: 2mm;
+            margin-top: 1.4mm;
         }
 
-        .brand .tagline {
-            font-size: 2.4mm;
-            font-weight: 400;
-            letter-spacing: 0.14em;
-            color: var(--text);
-            margin-top: 2.4mm;
+        /* 中段：概念図の地図 */
+        .map-wrap {
+            position: relative;
+            margin: 0.4mm 0;
         }
 
-        /* 区切り線 */
-        .divider {
-            width: 14mm;
-            height: 0;
-            border-top: 0.3mm solid var(--border);
-            margin: 0 auto;
+        .map-wrap .map-tag {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 1.5mm;
+            letter-spacing: 0.28em;
+            color: var(--muted);
+        }
+
+        .map {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .map text {
+            font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
         }
 
         /* 下段：情報 */
         .info {
             font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
-            font-size: 2.3mm;
+            font-size: 2.15mm;
             font-weight: 300;
-            line-height: 1.55;
+            line-height: 1.5;
             color: var(--text);
             text-align: center;
             letter-spacing: 0.02em;
         }
 
         .info .addr {
-            margin-bottom: 1.6mm;
+            margin-bottom: 1.2mm;
         }
 
         .info .contact {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1mm 3.5mm;
+            gap: 0.6mm 3mm;
             color: #4a463f;
         }
 
         .info .contact .label {
             color: var(--muted);
-            margin-right: 0.8mm;
+            margin-right: 0.7mm;
         }
 
         @media print {
@@ -188,19 +191,74 @@
     <div class="card">
         <div class="card-inner">
             <div class="brand">
-                <div class="logo-mark"></div>
                 <div class="name">旭スタジオ</div>
-                <div class="name-en">ASAHI STUDIO</div>
-                <div class="tagline">秋田市旭南のオープンスタジオ</div>
+                <div class="sub">ASAHI STUDIO ／ 秋田市旭南のオープンスタジオ</div>
             </div>
 
-            <div class="divider"></div>
+            <div class="map-wrap">
+                <span class="map-tag">ACCESS</span>
+                <!-- 概念図（正確な縮尺ではありません） -->
+                <svg class="map" viewBox="0 0 480 154" role="img"
+                    aria-label="旭スタジオへの概念図。旭川沿い、川元小川町バス停の目の前、アートスペース・オルタナスの隣。秋田駅と秋田公立美術大学の中間。">
+                    <!-- 旭川 -->
+                    <path d="M0,14 C120,30 200,8 300,22 C380,33 440,20 480,26 L480,50
+                             C440,44 380,57 300,46 C200,32 120,54 0,38 Z"
+                        fill="var(--river)" />
+                    <text x="70" y="34" font-size="9" fill="#7d8f94" letter-spacing="3"
+                        font-style="italic" transform="rotate(-4 70 34)">旭 川</text>
+
+                    <!-- 道路 -->
+                    <rect x="0" y="112" width="480" height="17" fill="var(--road)" />
+                    <line x1="0" y1="120.5" x2="480" y2="120.5" stroke="#c9c6c1"
+                        stroke-width="1" stroke-dasharray="9 7" />
+
+                    <!-- 方面 矢印 -->
+                    <text x="8" y="107" font-size="7.5" fill="#6b665f" letter-spacing="1">← 新屋・美術大学</text>
+                    <text x="472" y="107" font-size="7.5" fill="#6b665f" letter-spacing="1"
+                        text-anchor="end">秋田駅 →</text>
+
+                    <!-- 隣：アートスペース オルタナス -->
+                    <rect x="126" y="70" width="46" height="26" fill="none"
+                        stroke="var(--muted)" stroke-width="1" />
+                    <text x="149" y="83" font-size="6.4" fill="#6b665f" text-anchor="middle">アートスペース</text>
+                    <text x="149" y="91.5" font-size="7" fill="#3f3b35" text-anchor="middle">オルタナス</text>
+
+                    <!-- 奥：旭南ハイツ -->
+                    <rect x="300" y="62" width="70" height="24" fill="none"
+                        stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+                    <text x="335" y="72" font-size="6.8" fill="#3f3b35" text-anchor="middle">旭南ハイツ</text>
+                    <text x="335" y="81" font-size="5.6" fill="#8a8590" text-anchor="middle">ゲストルーム</text>
+
+                    <!-- 旭スタジオ（現在地） -->
+                    <rect x="204" y="64" width="30" height="30" fill="var(--text)" />
+                    <rect x="209" y="69" width="20" height="20" fill="none"
+                        stroke="var(--bg)" stroke-width="1.4" />
+                    <text x="219" y="58" font-size="9" font-weight="600" fill="var(--text)"
+                        text-anchor="middle">旭スタジオ</text>
+
+                    <!-- 目の前：連絡線＋バス停 -->
+                    <line x1="219" y1="94" x2="219" y2="112" stroke="var(--text)"
+                        stroke-width="1" stroke-dasharray="2.5 2.5" />
+                    <circle cx="219" cy="120.5" r="4.6" fill="var(--bg)"
+                        stroke="var(--text)" stroke-width="1.6" />
+                    <circle cx="219" cy="120.5" r="1.6" fill="var(--text)" />
+                    <text x="219" y="147" font-size="7" fill="#3f3b35"
+                        text-anchor="middle">川元小川町バス停（目の前）</text>
+
+                    <!-- 方位 -->
+                    <g transform="translate(418,74)">
+                        <line x1="0" y1="12" x2="0" y2="-4" stroke="var(--muted)" stroke-width="1" />
+                        <path d="M0,-7 L2.6,-2 L-2.6,-2 Z" fill="var(--muted)" />
+                        <text x="0" y="21" font-size="6" fill="var(--muted)" text-anchor="middle">N</text>
+                    </g>
+                </svg>
+            </div>
 
             <div class="info">
                 <div class="addr">〒010-0925　秋田県秋田市旭南三丁目十番十四号</div>
                 <div class="contact">
                     <span><span class="label">web</span>asahi-studio.3from2.com</span>
-                    <span><span class="label">Instagram</span>@asahi_studio_exploring</span>
+                    <span><span class="label">IG</span>@asahi_studio_exploring</span>
                     <span><span class="label">mail</span>tsuda@3from2.com</span>
                 </div>
             </div>
