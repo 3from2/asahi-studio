@@ -6,20 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>旭スタジオ 名刺（裏面）</title>
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-    <meta name="description" content="旭スタジオ 名刺の裏面デザイン（概念図の地図入り・印刷用 91×55mm）">
+    <meta name="description" content="旭スタジオ 名刺の裏面デザイン（白黒・印刷用 91×55mm）">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #f8f8f7;
-            --text: #1a1714;
-            --muted: #8a8590;
-            --border: #d4d4d0;
-            --river: #cfdce0;
-            --road: #eae8e4;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -28,7 +19,7 @@
 
         body {
             background-color: #e9e9e7;
-            color: var(--text);
+            color: #000;
             font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
             -webkit-font-smoothing: antialiased;
             display: flex;
@@ -48,25 +39,23 @@
             line-height: 1.7;
         }
 
-        /* ── 名刺 裏面 : 日本の標準名刺サイズ 91mm × 55mm ── */
+        /* ── 名刺 裏面 : 91mm × 55mm ／ 白黒のみ ── */
         .card {
             width: 91mm;
             height: 55mm;
-            background-color: var(--bg);
+            background-color: #fff;
             position: relative;
             overflow: hidden;
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
-            display: flex;
-            flex-direction: column;
-            padding: 5mm 6mm;
+            padding: 5.5mm 6.5mm;
         }
 
         /* 外枠（favicon / heroのフレームと同じ意匠） */
         .card::before {
             content: "";
             position: absolute;
-            inset: 2.6mm;
-            border: 0.4mm solid var(--text);
+            inset: 3mm;
+            border: 0.35mm solid #000;
             pointer-events: none;
         }
 
@@ -79,43 +68,14 @@
             justify-content: space-between;
         }
 
-        /* 上段：ロゴ・名称 */
-        .brand {
+        .name {
             text-align: center;
-        }
-
-        .brand .name {
-            font-size: 3.9mm;
+            font-size: 4mm;
             font-weight: 600;
-            letter-spacing: 0.42em;
-            text-indent: 0.42em;
+            letter-spacing: 0.5em;
+            text-indent: 0.5em;
             line-height: 1;
-        }
-
-        .brand .sub {
-            font-family: "Noto Sans JP", sans-serif;
-            font-size: 1.75mm;
-            font-weight: 400;
-            letter-spacing: 0.24em;
-            text-indent: 0.24em;
-            color: var(--muted);
-            margin-top: 1.4mm;
-        }
-
-        /* 中段：概念図の地図 */
-        .map-wrap {
-            position: relative;
-            margin: 0.4mm 0;
-        }
-
-        .map-wrap .map-tag {
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-family: "Noto Sans JP", sans-serif;
-            font-size: 1.5mm;
-            letter-spacing: 0.28em;
-            color: var(--muted);
+            padding-top: 0.6mm;
         }
 
         .map {
@@ -126,34 +86,38 @@
 
         .map text {
             font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+            fill: #000;
         }
 
-        /* 下段：情報 */
-        .info {
-            font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
-            font-size: 2.15mm;
-            font-weight: 300;
-            line-height: 1.5;
-            color: var(--text);
-            text-align: center;
-            letter-spacing: 0.02em;
-        }
-
-        .info .addr {
-            margin-bottom: 1.2mm;
-        }
-
-        .info .contact {
+        .foot {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.6mm 3mm;
-            color: #4a463f;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
         }
 
-        .info .contact .label {
-            color: var(--muted);
-            margin-right: 0.7mm;
+        .foot .addr {
+            font-size: 2.5mm;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            padding-bottom: 0.4mm;
+        }
+
+        .foot .ig {
+            text-align: center;
+        }
+
+        .foot .ig svg {
+            display: block;
+            width: 10.5mm;
+            height: 10.5mm;
+        }
+
+        .foot .ig .cap {
+            font-size: 1.6mm;
+            font-weight: 300;
+            letter-spacing: 0.18em;
+            margin-top: 0.8mm;
         }
 
         @media print {
@@ -175,8 +139,6 @@
 
             .card {
                 box-shadow: none;
-                width: 91mm;
-                height: 55mm;
             }
         }
     </style>
@@ -184,84 +146,54 @@
 
 <body>
     <p class="screen-note">
-        旭スタジオ 名刺（裏面）／ 91mm × 55mm 印刷用<br>
+        旭スタジオ 名刺（裏面）／ 91mm × 55mm 白黒印刷用<br>
         ブラウザの印刷機能でPDF化できます（用紙サイズ 91×55mm・余白なし）
     </p>
 
     <div class="card">
         <div class="card-inner">
-            <div class="brand">
-                <div class="name">旭スタジオ</div>
-                <div class="sub">ASAHI STUDIO ／ 秋田市旭南のオープンスタジオ</div>
-            </div>
+            <div class="name">旭スタジオ</div>
 
-            <div class="map-wrap">
-                <!-- 概念図（実際の位置関係に基づく略図。北＝右。正確な縮尺ではありません）
-                     根拠: 新屋線バス停車順（秋田駅西口→大町→旭南二・三丁目→川元小川町→
-                     川元むつみ町→秋田大橋→美術大学前→新屋）。通りは旭川西岸を南北に走り、
-                     スタジオは通りと旭川の間（正面が通り・奥が旭川）、オルタナスは北隣。 -->
-                <svg class="map" viewBox="0 0 480 154" role="img"
-                    aria-label="旭スタジオへの概念図。手前の通りに川元小川町バス停、背後に旭川。右（北）が大町・秋田駅方面、左（南）が秋田大橋・新屋・美術大学方面。アートスペース・オルタナスは秋田駅側の隣。">
-                    <!-- 方面（通りの上） -->
-                    <text x="8" y="12" font-size="7.5" fill="#6b665f" letter-spacing="1">← 秋田大橋・新屋・美術大学</text>
-                    <text x="472" y="12" font-size="7.5" fill="#6b665f" letter-spacing="1"
-                        text-anchor="end">大町・秋田駅 →</text>
+            <!-- 概念図（実際の位置関係に基づく略図。北＝右）
+                 通り＝旭川西岸を南北に走る新屋線バス通り。スタジオは通りと旭川の間。 -->
+            <svg class="map" viewBox="0 0 480 108" role="img"
+                aria-label="略図。手前の通りに川元小川町バス停、その目の前が旭スタジオ。背後に旭川。右が秋田駅方面、左が新屋方面。">
+                <!-- 方面 -->
+                <text x="4" y="11" font-size="7.5" letter-spacing="1">← 新屋</text>
+                <text x="476" y="11" font-size="7.5" letter-spacing="1" text-anchor="end">秋田駅 →</text>
 
-                    <!-- 通り（旭川西岸を南北に走る道・新屋線バス通り） -->
-                    <rect x="0" y="18" width="480" height="18" fill="var(--road)" />
-                    <line x1="0" y1="27" x2="480" y2="27" stroke="#c9c6c1"
-                        stroke-width="1" stroke-dasharray="9 7" />
+                <!-- 通り（2本線） -->
+                <line x1="0" y1="19" x2="480" y2="19" stroke="#000" stroke-width="1" />
+                <line x1="0" y1="35" x2="480" y2="35" stroke="#000" stroke-width="1" />
 
-                    <!-- バス停（新屋方面行き・スタジオの目の前） -->
-                    <circle cx="200" cy="36" r="4.6" fill="var(--bg)"
-                        stroke="var(--text)" stroke-width="1.6" />
-                    <circle cx="200" cy="36" r="1.6" fill="var(--text)" />
-                    <line x1="200" y1="42" x2="200" y2="60" stroke="var(--text)"
-                        stroke-width="1" stroke-dasharray="2.5 2.5" />
-                    <text x="192" y="53" font-size="7" fill="#3f3b35"
-                        text-anchor="end">川元小川町バス停（目の前）</text>
+                <!-- バス停（スタジオの目の前） -->
+                <circle cx="200" cy="27" r="4.4" fill="#fff" stroke="#000" stroke-width="1.4" />
+                <circle cx="200" cy="27" r="1.5" fill="#000" />
+                <text x="189" y="29.8" font-size="7" text-anchor="end">川元小川町</text>
 
-                    <!-- 旭スタジオ（現在地・通りと旭川の間） -->
-                    <rect x="185" y="60" width="30" height="30" fill="var(--text)" />
-                    <rect x="190" y="65" width="20" height="20" fill="none"
-                        stroke="var(--bg)" stroke-width="1.4" />
-                    <text x="177" y="79" font-size="9" font-weight="600" fill="var(--text)"
-                        text-anchor="end">旭スタジオ</text>
+                <!-- 旭スタジオ（現在地） -->
+                <line x1="200" y1="35" x2="200" y2="44" stroke="#000" stroke-width="0.8" />
+                <rect x="188" y="44" width="24" height="24" fill="#000" />
+                <rect x="192" y="48" width="16" height="16" fill="none" stroke="#fff" stroke-width="1.2" />
 
-                    <!-- 北隣（秋田駅側）：アートスペース オルタナス -->
-                    <rect x="228" y="64" width="48" height="26" fill="none"
-                        stroke="var(--muted)" stroke-width="1" />
-                    <text x="252" y="76" font-size="6.4" fill="#6b665f" text-anchor="middle">アートスペース</text>
-                    <text x="252" y="85" font-size="7" fill="#3f3b35" text-anchor="middle">オルタナス</text>
+                <!-- 旭川（2本の波線） -->
+                <path d="M0,86 C80,81 160,91 240,86 C320,81 400,91 480,86"
+                    fill="none" stroke="#000" stroke-width="0.9" />
+                <path d="M0,98 C80,93 160,103 240,98 C320,93 400,103 480,98"
+                    fill="none" stroke="#000" stroke-width="0.9" />
+                <rect x="42" y="83" width="42" height="18" fill="#fff" />
+                <text x="63" y="95" font-size="7.5" letter-spacing="4"
+                    text-anchor="middle">旭 川</text>
+            </svg>
 
-                    <!-- 奥（旭川側）：旭南ハイツ -->
-                    <rect x="290" y="94" width="66" height="22" fill="none"
-                        stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
-                    <text x="323" y="104" font-size="6.8" fill="#3f3b35" text-anchor="middle">旭南ハイツ</text>
-                    <text x="323" y="112" font-size="5.6" fill="#8a8590" text-anchor="middle">ゲストルーム</text>
-
-                    <!-- 旭川（スタジオの奥・東側を南北に流れる） -->
-                    <path d="M0,128 C120,140 200,120 300,131 C380,139 440,127 480,132 L480,154
-                             L0,154 Z"
-                        fill="var(--river)" />
-                    <text x="80" y="147" font-size="9" fill="#7d8f94" letter-spacing="3"
-                        font-style="italic" transform="rotate(-3 80 147)">旭 川</text>
-
-                    <!-- 方位（北＝右） -->
-                    <g transform="translate(438,102)">
-                        <line x1="-14" y1="0" x2="4" y2="0" stroke="var(--muted)" stroke-width="1" />
-                        <path d="M7,0 L2,2.6 L2,-2.6 Z" fill="var(--muted)" />
-                        <text x="12" y="2.6" font-size="6.5" fill="var(--muted)">N</text>
-                    </g>
-                </svg>
-            </div>
-
-            <div class="info">
-                <div class="addr">〒010-0925　秋田県秋田市旭南三丁目十番十四号</div>
-                <div class="contact">
-                    <span><span class="label">web</span>asahi-studio.3from2.com</span>
-                    <span><span class="label">IG</span>@asahi_studio_exploring</span>
-                    <span><span class="label">mail</span>tsuda@3from2.com</span>
+            <div class="foot">
+                <div class="addr">秋田市旭南3-10-14-2</div>
+                <div class="ig">
+                    <svg viewBox="0 0 33 33" shape-rendering="crispEdges" role="img"
+                        aria-label="InstagramのQRコード">
+                        <path d="M0 0h7v1h-7zM8 0h3v1h-3zM12 0h1v1h-1zM16 0h1v1h-1zM18 0h2v1h-2zM21 0h1v1h-1zM23 0h1v1h-1zM26 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM11 1h1v1h-1zM14 1h1v1h-1zM16 1h2v1h-2zM21 1h1v1h-1zM23 1h2v1h-2zM26 1h1v1h-1zM32 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM10 2h5v1h-5zM16 2h1v1h-1zM18 2h3v1h-3zM22 2h1v1h-1zM26 2h1v1h-1zM28 2h3v1h-3zM32 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h5v1h-5zM15 3h1v1h-1zM18 3h2v1h-2zM22 3h2v1h-2zM26 3h1v1h-1zM28 3h3v1h-3zM32 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM9 4h2v1h-2zM13 4h1v1h-1zM16 4h1v1h-1zM18 4h1v1h-1zM21 4h1v1h-1zM24 4h1v1h-1zM26 4h1v1h-1zM28 4h3v1h-3zM32 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM9 5h2v1h-2zM13 5h1v1h-1zM15 5h4v1h-4zM21 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM32 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h7v1h-7zM8 7h2v1h-2zM11 7h2v1h-2zM14 7h4v1h-4zM19 7h1v1h-1zM24 7h1v1h-1zM0 8h1v1h-1zM2 8h2v1h-2zM5 8h3v1h-3zM9 8h4v1h-4zM14 8h5v1h-5zM21 8h1v1h-1zM23 8h1v1h-1zM26 8h1v1h-1zM29 8h1v1h-1zM31 8h2v1h-2zM7 9h2v1h-2zM10 9h1v1h-1zM12 9h2v1h-2zM16 9h5v1h-5zM22 9h2v1h-2zM26 9h2v1h-2zM29 9h4v1h-4zM1 10h6v1h-6zM8 10h3v1h-3zM12 10h2v1h-2zM16 10h1v1h-1zM18 10h1v1h-1zM23 10h1v1h-1zM25 10h1v1h-1zM27 10h3v1h-3zM31 10h2v1h-2zM3 11h1v1h-1zM7 11h2v1h-2zM12 11h1v1h-1zM15 11h3v1h-3zM19 11h1v1h-1zM23 11h2v1h-2zM26 11h2v1h-2zM29 11h1v1h-1zM32 11h1v1h-1zM0 12h1v1h-1zM3 12h4v1h-4zM9 12h2v1h-2zM14 12h3v1h-3zM20 12h1v1h-1zM22 12h4v1h-4zM29 12h1v1h-1zM0 13h1v1h-1zM5 13h1v1h-1zM7 13h1v1h-1zM9 13h1v1h-1zM11 13h1v1h-1zM13 13h2v1h-2zM17 13h1v1h-1zM20 13h1v1h-1zM24 13h1v1h-1zM27 13h1v1h-1zM31 13h1v1h-1zM2 14h5v1h-5zM8 14h1v1h-1zM11 14h1v1h-1zM13 14h1v1h-1zM17 14h1v1h-1zM19 14h4v1h-4zM26 14h2v1h-2zM2 15h2v1h-2zM5 15h1v1h-1zM7 15h6v1h-6zM15 15h1v1h-1zM21 15h2v1h-2zM25 15h2v1h-2zM28 15h3v1h-3zM0 16h2v1h-2zM4 16h1v1h-1zM6 16h4v1h-4zM11 16h4v1h-4zM16 16h1v1h-1zM18 16h1v1h-1zM20 16h3v1h-3zM25 16h2v1h-2zM28 16h1v1h-1zM30 16h1v1h-1zM1 17h1v1h-1zM4 17h1v1h-1zM7 17h2v1h-2zM12 17h1v1h-1zM15 17h1v1h-1zM20 17h2v1h-2zM23 17h1v1h-1zM26 17h1v1h-1zM28 17h2v1h-2zM32 17h1v1h-1zM1 18h3v1h-3zM5 18h2v1h-2zM9 18h8v1h-8zM18 18h1v1h-1zM22 18h1v1h-1zM25 18h1v1h-1zM27 18h2v1h-2zM30 18h2v1h-2zM0 19h4v1h-4zM10 19h2v1h-2zM13 19h1v1h-1zM17 19h4v1h-4zM24 19h3v1h-3zM28 19h1v1h-1zM31 19h1v1h-1zM0 20h2v1h-2zM3 20h1v1h-1zM6 20h1v1h-1zM11 20h1v1h-1zM13 20h1v1h-1zM16 20h1v1h-1zM19 20h1v1h-1zM21 20h1v1h-1zM29 20h2v1h-2zM32 20h1v1h-1zM0 21h3v1h-3zM4 21h2v1h-2zM8 21h2v1h-2zM11 21h2v1h-2zM14 21h4v1h-4zM20 21h2v1h-2zM23 21h1v1h-1zM25 21h2v1h-2zM29 21h2v1h-2zM32 21h1v1h-1zM2 22h1v1h-1zM5 22h4v1h-4zM11 22h2v1h-2zM15 22h1v1h-1zM18 22h3v1h-3zM22 22h2v1h-2zM25 22h3v1h-3zM31 22h2v1h-2zM1 23h4v1h-4zM10 23h1v1h-1zM12 23h1v1h-1zM15 23h1v1h-1zM18 23h1v1h-1zM20 23h1v1h-1zM22 23h1v1h-1zM26 23h1v1h-1zM29 23h1v1h-1zM0 24h1v1h-1zM3 24h1v1h-1zM6 24h1v1h-1zM8 24h6v1h-6zM17 24h1v1h-1zM19 24h2v1h-2zM22 24h1v1h-1zM24 24h5v1h-5zM8 25h2v1h-2zM15 25h2v1h-2zM19 25h1v1h-1zM24 25h1v1h-1zM28 25h2v1h-2zM31 25h2v1h-2zM0 26h7v1h-7zM8 26h2v1h-2zM11 26h2v1h-2zM17 26h5v1h-5zM23 26h2v1h-2zM26 26h1v1h-1zM28 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM11 27h2v1h-2zM14 27h1v1h-1zM16 27h9v1h-9zM28 27h4v1h-4zM0 28h1v1h-1zM2 28h3v1h-3zM6 28h1v1h-1zM9 28h3v1h-3zM15 28h4v1h-4zM20 28h2v1h-2zM23 28h6v1h-6zM30 28h1v1h-1zM0 29h1v1h-1zM2 29h3v1h-3zM6 29h1v1h-1zM8 29h1v1h-1zM10 29h3v1h-3zM16 29h2v1h-2zM19 29h1v1h-1zM22 29h3v1h-3zM27 29h1v1h-1zM29 29h1v1h-1zM32 29h1v1h-1zM0 30h1v1h-1zM2 30h3v1h-3zM6 30h1v1h-1zM8 30h1v1h-1zM10 30h4v1h-4zM15 30h2v1h-2zM20 30h2v1h-2zM23 30h5v1h-5zM30 30h1v1h-1zM0 31h1v1h-1zM6 31h1v1h-1zM9 31h1v1h-1zM17 31h3v1h-3zM22 31h1v1h-1zM24 31h1v1h-1zM27 31h2v1h-2zM32 31h1v1h-1zM0 32h7v1h-7zM8 32h1v1h-1zM13 32h2v1h-2zM16 32h2v1h-2zM21 32h1v1h-1zM23 32h1v1h-1zM25 32h1v1h-1zM28 32h1v1h-1zM30 32h1v1h-1z" fill="#000" />
+                    </svg>
+                    <div class="cap">Instagram</div>
                 </div>
             </div>
         </div>
